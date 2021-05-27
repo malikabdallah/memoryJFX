@@ -3,9 +3,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vue.Jeu">
+<AnchorPane prefHeight="600" prefWidth="900" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Jeu">
    <children>
-      <VBox fx:id="boxes"  prefHeight="400.0" prefWidth="600.0" />
+      <VBox fx:id="boxes" layoutX="36.0" layoutY="59.0" prefHeight="317.0" prefWidth="573.0" style="-fx-background-color: black;" />
    </children>
 </AnchorPane>

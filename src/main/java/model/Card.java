@@ -6,7 +6,7 @@ import javafx.scene.image.ImageView;
 
 public class Card extends ImageView {
 
-    private static final String emptyCard = "/imgs/unknown.png";
+    private static final String emptyCard = "/img/image0.png";
 
     private String url;
     private boolean flipped;

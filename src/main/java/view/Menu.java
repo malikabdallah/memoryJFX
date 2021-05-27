@@ -1,12 +1,13 @@
-package vue;
+package view;
 
+import controlleur.Controller;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import main.Controller;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 
@@ -33,7 +34,7 @@ public class Menu {
     }
 
 
-    public void goToPlay(MouseEvent mouseEvent) {
+    public void goToPlay(MouseEvent mouseEvent) throws FileNotFoundException {
         controlleur.goToJeu();
     }
 }
