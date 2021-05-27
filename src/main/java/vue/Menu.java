@@ -5,7 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import sample.Controller;
+import main.Controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,7 +32,8 @@ public class Menu {
         return vue;
     }
 
-    public void jouer(MouseEvent mouseEvent) {
+
+    public void goToPlay(MouseEvent mouseEvent) {
         controlleur.goToJeu();
     }
 }

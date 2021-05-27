@@ -15,6 +15,6 @@
          </image>
       </ImageView>
       <Text fill="GOLD" layoutX="309.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AVENGERS MEMORY GAME" wrappingWidth="165.13671875" />
-      <Button layoutX="331.0" layoutY="370.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: BLACK;" text="PLAY" textFill="GOLD" />
+      <Button onMouseClicked="#goToPlay" layoutX="331.0" layoutY="370.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: BLACK;" text="PLAY" textFill="GOLD" />
    </children>
 </AnchorPane>

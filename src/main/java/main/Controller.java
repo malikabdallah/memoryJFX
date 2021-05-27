@@ -1,6 +1,7 @@
-package sample;
+package main;
 
 import javafx.stage.Stage;
+import vue.Jeu;
 import vue.Menu;
 
 public class Controller {
@@ -9,6 +10,8 @@ public class Controller {
 
 
     private Menu menuView;
+    private Jeu jeuView;
+    private Stage stage;
 
     public Controller(Stage stage) {
         laStageUnique = stage;
@@ -19,6 +22,11 @@ public class Controller {
 
     public void goToJeu() {
         //jeu=Jeu.creerEtAfficher(this,laStageUnique);
+        try {
+            Jeu.creerEtAfficher(this, stage);
+        }catch (Exception e){
+
+        }
 
     }
 }
