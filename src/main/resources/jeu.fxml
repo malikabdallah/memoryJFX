@@ -3,8 +3,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="600" prefWidth="900" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Jeu">
+<AnchorPane prefHeight="600" prefWidth="900" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Jeu">
    <children>
-      <VBox fx:id="boxes" layoutX="36.0" layoutY="59.0" prefHeight="317.0" prefWidth="573.0" style="-fx-background-color: black;" />
+      <VBox fx:id="boxes" alignment="CENTER" layoutX="36.0" layoutY="59.0" prefHeight="317.0" prefWidth="573.0" style="-fx-background-color: black;" />
    </children>
 </AnchorPane>

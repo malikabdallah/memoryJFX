@@ -3,6 +3,7 @@ package view;
 import controlleur.Controller;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
@@ -40,29 +41,29 @@ public class Jeu {
         //vBox.getChildren().add(new Card("ima"));
         int cpt=0;
         List<Card>cards=new ArrayList<>();
-        for(int i=0;i<=5;i++){
+        for(int i=0;i<=7;i++){
 
             Card card=new Card("/img/image"+String.valueOf(i)+".png");
-            card.setFitHeight(100);
-            card.setFitWidth(150);
+            card.setFitHeight(120);
+            card.setFitWidth(170);
             card.setPreserveRatio(true);
             cards.add(card);
 
             Card card2=new Card("/img/image"+String.valueOf(i)+".png");
-            card2.setFitHeight(100);
-            card2.setFitWidth(150);
+            card2.setFitHeight(120);
+            card2.setFitWidth(170);
             card2.setPreserveRatio(true);
             cards.add(card2);
 
         }
 
-        //Collections.shuffle(cards);
+        Collections.shuffle(cards);
 
 
 
 
 
-        for(int j=0;j<=2;j++){
+        for(int j=0;j<=3;j++){
             HBox hBox=new HBox();
 
             for(int i=0;i<=3;i++){
@@ -72,6 +73,13 @@ public class Jeu {
                 ImageView iv = new ImageView(new Image("image0.png", 150, 100, true, true));
                 CustomImage customImage=new CustomImage(1,2,"/img/image0.png");
                 Card card=new Card("/img/image0.png");
+                card.setFitHeight(100);
+                card.setFitWidth(150);
+                card.setPreserveRatio(true);
+
+
+
+                Card card=new Card("/img/image"+String.valueOf(7)+".png");
                 card.setFitHeight(100);
                 card.setFitWidth(150);
                 card.setPreserveRatio(true);
@@ -86,12 +94,16 @@ public class Jeu {
 
 
                 });
+
+
+
                 //FileInputStream input = new FileInputStream(s);
                 //Image image = new Image(input);
                 //ImageView imageView = new ImageView(image);
                // iv.setFitHeight(100);
-                hBox.setPadding(new Insets(10,10,1,10));
+                hBox.setPadding(new Insets(10,10,1,40));
                 hBox.setSpacing(10);
+                hBox.setAlignment(Pos.CENTER);
 
 
                 hBox.getChildren().add(card);
@@ -103,43 +115,18 @@ public class Jeu {
         }
 
 
-        HBox hbox2=new HBox();
-        Card card=new Card("/img/image"+String.valueOf(6)+".png");
-        card.setFitHeight(100);
-        card.setFitWidth(150);
-        card.setPreserveRatio(true);
-        card.setOnMouseClicked(x -> {
-            if(card.isFlipped()){
-                return;
-            }
-            card.flip();
-
-
-        });
-        Card card2=new Card("/img/image"+String.valueOf(6)+".png");
-        card2.setFitHeight(100);
-        card2.setFitWidth(150);
-        card2.setPreserveRatio(true);
-        card2.setOnMouseClicked(x -> {
-            if(card2.isFlipped()){
-                return;
-            }
-            card2.flip();
-
-
-        });
-        hbox2.getChildren().add(card);
-        hbox2.getChildren().add(card2);
-        hbox2.setPadding(new Insets(10,10,1,10));
-        hbox2.setSpacing(10);
 
 
 
-        vBox.getChildren().add(hbox2);
+
+
+        vBox.setAlignment(Pos.CENTER);
 
         root.add(vBox,0,0);
 
         primaryStage.setTitle("Easy Memory Puzzle");
+        primaryStage.setWidth(550);
+        primaryStage.setHeight(600);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
         return new Jeu();
