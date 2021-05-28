@@ -19,6 +19,9 @@ public class Card extends ImageView {
     public void flip() {
         setImage(new Image(url));
         flipped = true;
+        this.setFitHeight(100);
+        this.setFitWidth(150);
+        this.setPreserveRatio(true);
     }
 
     public boolean isFlipped() {

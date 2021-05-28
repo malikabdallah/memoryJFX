@@ -16,7 +16,7 @@ import model.CustomImage;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.Random;
+import java.util.*;
 
 public class Jeu {
 
@@ -38,27 +38,46 @@ public class Jeu {
         adjust.setBrightness(-0.25);
         VBox vBox=new VBox();
         //vBox.getChildren().add(new Card("ima"));
+        int cpt=0;
+        List<Card>cards=new ArrayList<>();
+        for(int i=0;i<=5;i++){
 
-        for(int j=0;j<=4;j++){
+            Card card=new Card("/img/image"+String.valueOf(i)+".png");
+            card.setFitHeight(100);
+            card.setFitWidth(150);
+            card.setPreserveRatio(true);
+            cards.add(card);
+
+            Card card2=new Card("/img/image"+String.valueOf(i)+".png");
+            card2.setFitHeight(100);
+            card2.setFitWidth(150);
+            card2.setPreserveRatio(true);
+            cards.add(card2);
+
+        }
+
+        //Collections.shuffle(cards);
+
+
+
+
+
+        for(int j=0;j<=2;j++){
             HBox hBox=new HBox();
 
-            for(int i=0;i<=5;i++){
+            for(int i=0;i<=3;i++){
+                /*
                 String s=new String("image"+0+".png");
 
                 ImageView iv = new ImageView(new Image("image0.png", 150, 100, true, true));
-
-                /*
-                System.out.println("r="+this.getClass().getClassLoader().getResource("image0.jpg")
-                );
-                Card card=new Card("/img/image0.png");
-
-                 */
                 CustomImage customImage=new CustomImage(1,2,"/img/image0.png");
                 Card card=new Card("/img/image0.png");
                 card.setFitHeight(100);
                 card.setFitWidth(150);
                 card.setPreserveRatio(true);
 
+                 */
+                Card card=cards.get(cpt);
                 card.setOnMouseClicked(x -> {
                     if(card.isFlipped()){
                         return;
@@ -76,6 +95,7 @@ public class Jeu {
 
 
                 hBox.getChildren().add(card);
+                cpt++;
                 //cards.add(imageView);
             }
 
@@ -83,8 +103,39 @@ public class Jeu {
         }
 
 
+        HBox hbox2=new HBox();
+        Card card=new Card("/img/image"+String.valueOf(6)+".png");
+        card.setFitHeight(100);
+        card.setFitWidth(150);
+        card.setPreserveRatio(true);
+        card.setOnMouseClicked(x -> {
+            if(card.isFlipped()){
+                return;
+            }
+            card.flip();
 
 
+        });
+        Card card2=new Card("/img/image"+String.valueOf(6)+".png");
+        card2.setFitHeight(100);
+        card2.setFitWidth(150);
+        card2.setPreserveRatio(true);
+        card2.setOnMouseClicked(x -> {
+            if(card2.isFlipped()){
+                return;
+            }
+            card2.flip();
+
+
+        });
+        hbox2.getChildren().add(card);
+        hbox2.getChildren().add(card2);
+        hbox2.setPadding(new Insets(10,10,1,10));
+        hbox2.setSpacing(10);
+
+
+
+        vBox.getChildren().add(hbox2);
 
         root.add(vBox,0,0);
 
