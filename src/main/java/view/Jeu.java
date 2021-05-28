@@ -58,6 +58,15 @@ public class Jeu {
                 card.setFitHeight(100);
                 card.setFitWidth(150);
                 card.setPreserveRatio(true);
+
+                card.setOnMouseClicked(x -> {
+                    if(card.isFlipped()){
+                        return;
+                    }
+                    card.flip();
+
+
+                });
                 //FileInputStream input = new FileInputStream(s);
                 //Image image = new Image(input);
                 //ImageView imageView = new ImageView(image);
