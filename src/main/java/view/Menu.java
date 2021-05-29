@@ -5,17 +5,27 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
-
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import java.io.File;
 public class Menu {
 
     private static Controller controlleur;
 
+    public void lancerMusic(){
+        AudioClip mApplause = new AudioClip(this.getClass().getResource("/avengers.mp3").toExternalForm());
+        mApplause.play();
+    }
+
     public static Menu creerEtAfficher(Controller c, Stage laStageUnique) {
+
+
         URL location = Menu.class.getResource("/menu.fxml");
         FXMLLoader fxmlLoader = new FXMLLoader(location);
         Parent root = null;

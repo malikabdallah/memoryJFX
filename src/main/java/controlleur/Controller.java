@@ -18,6 +18,7 @@ public class Controller {
     public Controller(Stage stage) {
         laStageUnique = stage;
         menuView = Menu.creerEtAfficher(this,stage);
+        menuView.lancerMusic();
 
 
     }
