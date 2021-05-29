@@ -6,16 +6,12 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.effect.ColorAdjust;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.Card;
-import model.CustomImage;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.*;
 
@@ -69,24 +65,7 @@ public class Jeu {
             HBox hBox=new HBox();
 
             for(int i=0;i<=3;i++){
-                /*
-                String s=new String("image"+0+".png");
 
-                ImageView iv = new ImageView(new Image("image0.png", 150, 100, true, true));
-                CustomImage customImage=new CustomImage(1,2,"/img/image0.png");
-                Card card=new Card("/img/image0.png");
-                card.setFitHeight(100);
-                card.setFitWidth(150);
-                card.setPreserveRatio(true);
-
-
-
-                Card card=new Card("/img/image"+String.valueOf(7)+".png");
-                card.setFitHeight(100);
-                card.setFitWidth(150);
-                card.setPreserveRatio(true);
-
-                 */
                 Card card=cards.get(cpt);
 
                 card.setOnMouseExited(x -> {
