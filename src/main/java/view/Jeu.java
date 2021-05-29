@@ -24,6 +24,8 @@ public class Jeu {
 
     @FXML
     private VBox boxes;
+    private Card selectedCard;
+
     public Jeu() {
     }
 
@@ -86,12 +88,39 @@ public class Jeu {
 
                  */
                 Card card=cards.get(cpt);
+
+                card.setOnMouseExited(x -> {
+                    try {
+                        Thread.sleep(    100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    if(selectedCard != card && !card.isFlipped())
+                        card.hide();
+                    card.setEffect(null);
+
+                });
                 card.setOnMouseClicked(x -> {
                     if(card.isFlipped()){
                         return;
                     }
-                    card.flip();
+                    if(selectedCard != null && !selectedCard.isFlipped()) {
+                        if (selectedCard != card && selectedCard.equals(card)) {
+                            selectedCard.flip();
+                            card.flip();
+                        } else {
+                            card.show();
 
+                            //card.setEffect(null);
+                            selectedCard.hide();
+                            selectedCard.setEffect(null);
+                            selectedCard = null;
+
+                        }
+                    } else {
+                        selectedCard = card;
+                        selectedCard.show();
+                    }
 
                 });
 
