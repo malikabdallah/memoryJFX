@@ -20,12 +20,10 @@ public class Menu {
 
     public void lancerMusic(){
         AudioClip mApplause = new AudioClip(this.getClass().getResource("/avengers.mp3").toExternalForm());
-        mApplause.play();
+        //mApplause.play();
     }
 
     public static Menu creerEtAfficher(Controller c, Stage laStageUnique) {
-
-
         URL location = Menu.class.getResource("/menu.fxml");
         FXMLLoader fxmlLoader = new FXMLLoader(location);
         Parent root = null;
