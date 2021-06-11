@@ -6,6 +6,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.effect.ColorAdjust;
@@ -20,6 +21,7 @@ import java.util.*;
 
 public class Jeu {
 
+    public Button btnplayagain;
     private Card selectedCard;
 
     public Jeu() {
@@ -32,6 +34,7 @@ public class Jeu {
         GridPane root = new GridPane();
         VBox vBox=new VBox();
         int cpt=0;
+        controlleur=c;
         this.cards=new ArrayList<>();
         for(int i=0;i<=7;i++){
             Card card=new Card("/img/image"+String.valueOf(i)+".png");
@@ -81,22 +84,7 @@ public class Jeu {
                         selectedCard.show();
                     }
                     if(checkAll()){
-                        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                        alert.setTitle("YOU WON !");
-                        alert.setContentText("PLAY AGAIN ?");
-                        ButtonType okButton = new ButtonType("Yes", ButtonBar.ButtonData.YES);
-                        ButtonType noButton = new ButtonType("No", ButtonBar.ButtonData.NO);
-                        ButtonType cancelButton = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
-                        alert.getButtonTypes().setAll(okButton, noButton, cancelButton);
-                        alert.showAndWait()
-                                .filter(response -> response == ButtonType.YES)
-                                .ifPresent(response -> {
-                                    try {
-                                        controlleur.playAgain();
-                                    } catch (FileNotFoundException e) {
-                                        e.printStackTrace();
-                                    }
-                                });
+                      btnplayagain.setVisible(true);
                          }
 
                 });
@@ -110,13 +98,26 @@ public class Jeu {
 
             vBox.getChildren().add(hBox);
         }
+        btnplayagain=new Button();
+        btnplayagain.setText(" play again");
+        btnplayagain.setPadding(new Insets(10,10,10,10));
+        btnplayagain.setVisible(false);
+        btnplayagain.setOnMouseClicked(mouseEvent->{
+            try {
+                this.controlleur.playAgain();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        });
+        vBox.getChildren().add(btnplayagain);
 
         vBox.setAlignment(Pos.CENTER);
         root.add(vBox,0,0);
-        primaryStage.setTitle("Easy Memory Puzzle");
-        primaryStage.setWidth(550);
+        primaryStage.setTitle("Avengers Memory");
+        primaryStage.setWidth(600);
         primaryStage.setHeight(600);
         primaryStage.setScene(new Scene(root));
+
         primaryStage.show();
         return new Jeu();
     }
@@ -124,11 +125,9 @@ public class Jeu {
     private boolean checkAll() {
         for(Card card:cards){
             if(card.isFlipped()== false){
-                System.out.println("not check all");
                 return false;
             }
         }
-        System.out.println("check all");
         return true;
     }
 }

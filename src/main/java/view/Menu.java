@@ -20,7 +20,8 @@ public class Menu {
 
     public void lancerMusic(){
         AudioClip mApplause = new AudioClip(this.getClass().getResource("/avengers.mp3").toExternalForm());
-        //mApplause.play();
+        mApplause.play();
+
     }
 
     public static Menu creerEtAfficher(Controller c, Stage laStageUnique) {
